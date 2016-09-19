@@ -36,6 +36,7 @@ namespace NetworkProjectClient
             String incommingData = null;
             while (_isConnected)
             {
+                
                 Console.Write(">");
                 sData = Console.ReadLine();
                 _sWriter.WriteLine(sData);
