@@ -44,7 +44,7 @@ namespace NetworkProjectClient
             Console.Clear();
             while (_isConnected)
             {
-                Console.Write(">");
+                Console.Write("Write your command>");
                 sData = Console.ReadLine();
                 _sWriter.WriteLine(sData);
                 _sWriter.Flush();
