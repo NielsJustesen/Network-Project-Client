@@ -17,6 +17,7 @@ namespace NetworkProjectClient
         private StreamWriter _sWriter;
         private StreamReader _sReader;
         private Boolean _isConnected;
+        private String incommingData = null;
 
 
         public TCPClient(String ipaddress, int portNum)
@@ -33,7 +34,6 @@ namespace NetworkProjectClient
             _sReader = new StreamReader(_client.GetStream(), Encoding.ASCII);
             _isConnected = true;
             String sData = null;
-            String incommingData = null;
             Console.WriteLine("Choose your action:");
             Console.WriteLine("Move, to ecounter an enemy.");
             Console.WriteLine("Attack, to attack the enemy.");
@@ -44,15 +44,23 @@ namespace NetworkProjectClient
             Console.Clear();
             while (_isConnected)
             {
+                Console.WriteLine("Move, Attack, Flee, Drink");
                 Console.Write("Write your command>");
                 sData = Console.ReadLine();
                 _sWriter.WriteLine(sData);
-                _sWriter.Flush();
-                incommingData = _sReader.ReadLine();
-                Console.WriteLine(incommingData);
+                InCommingData();
             }
 
         }
-
+        public void InCommingData()
+        {
+            Console.WriteLine("Response from server: ");
+            _sWriter.Flush();
+            incommingData = _sReader.ReadLine();
+            Console.WriteLine(incommingData);
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey();
+            Console.Clear();
+        }
     }
 }
