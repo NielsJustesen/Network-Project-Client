@@ -48,19 +48,23 @@ namespace NetworkProjectClient
                 Console.Write("Write your command>");
                 sData = Console.ReadLine();
                 _sWriter.WriteLine(sData);
-                InCommingData();
+                Console.WriteLine("Response from server: ");
+                _sWriter.Flush();
+
+                string line;
+                while ((line = _sReader.Read != null)
+                {
+                    line = _sReader.ReadLine();
+                    Console.WriteLine(line);
+                }
+
+                //incommingData = _sReader.ReadLine();
+                //Console.WriteLine(incommingData);
+                Console.WriteLine("Press any key to continue");
+                Console.ReadKey();
+                Console.Clear();
             }
 
-        }
-        public void InCommingData()
-        {
-            Console.WriteLine("Response from server: ");
-            _sWriter.Flush();
-            incommingData = _sReader.ReadLine();
-            Console.WriteLine(incommingData);
-            Console.WriteLine("Press any key to continue");
-            Console.ReadKey();
-            Console.Clear();
         }
     }
 }
