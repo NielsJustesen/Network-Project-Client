@@ -37,14 +37,13 @@ namespace NetworkProjectClient
             Console.WriteLine("Choose your action:");
             Console.WriteLine("Move, to ecounter an enemy.");
             Console.WriteLine("Attack, to attack the enemy.");
-            Console.WriteLine("Flee, to run away from the enemy.");
             Console.WriteLine("Drink, to get health, when not in combat.");
             Console.WriteLine("Press any key to start.");
             Console.ReadKey();
             Console.Clear();
             while (_isConnected)
             {
-                Console.WriteLine("Move, Attack, Flee, Drink");
+                Console.WriteLine("Move, Attack, Drink");
                 Console.Write("Write your command>");
                 sData = Console.ReadLine();
                 _sWriter.WriteLine(sData);
