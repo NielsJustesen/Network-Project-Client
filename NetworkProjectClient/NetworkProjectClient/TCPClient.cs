@@ -51,18 +51,25 @@ namespace NetworkProjectClient
                 Console.WriteLine("Response from server: ");
                 _sWriter.Flush();
 
-                string line;
-                while ((line = _sReader.Read != null)
-                {
-                    line = _sReader.ReadLine();
-                    Console.WriteLine(line);
-                }
 
-                //incommingData = _sReader.ReadLine();
-                //Console.WriteLine(incommingData);
+               
+               
+
+            
+              //handles server responses
+                char[] data;
+                data = new char[1024];
+                byte[] responseData;
+                Int32 bytes = _sReader.Read(data,0,data.Length);
+                responseData= Encoding.ASCII.GetBytes(data, 0, bytes);
+                string result = System.Text.Encoding.UTF8.GetString(responseData);
+                Console.WriteLine(result);
+                // end of server responses
                 Console.WriteLine("Press any key to continue");
                 Console.ReadKey();
                 Console.Clear();
+
+            
             }
 
         }
