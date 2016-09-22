@@ -14,7 +14,7 @@ namespace NetworkProjectClient
         static void Main(string[] args)
         {
             Console.Title = "Klient";
-            TCPClient c = new TCPClient("192.168.1.103", 5557);
+            TCPClient c = new TCPClient("127.0.0.1", 5557);
         }
     }
 }
