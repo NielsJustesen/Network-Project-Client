@@ -34,7 +34,7 @@ namespace NetworkProjectClient
             _sReader = new StreamReader(_client.GetStream(), Encoding.ASCII);
             _isConnected = true;
             String sData = null;
-            Console.Write("Write in your username>");
+            Console.Write("Write your username>");
             sData = Console.ReadLine();
             _sWriter.WriteLine(sData);
             Console.Clear();
