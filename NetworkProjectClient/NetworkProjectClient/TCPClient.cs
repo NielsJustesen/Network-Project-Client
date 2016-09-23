@@ -34,6 +34,10 @@ namespace NetworkProjectClient
             _sReader = new StreamReader(_client.GetStream(), Encoding.ASCII);
             _isConnected = true;
             String sData = null;
+            Console.Write("Write in your username>");
+            sData = Console.ReadLine();
+            _sWriter.WriteLine(sData);
+            Console.Clear();
             Console.WriteLine("Choose your action:");
             Console.WriteLine("Move, to ecounter an enemy.");
             Console.WriteLine("Attack, to attack the enemy.");
