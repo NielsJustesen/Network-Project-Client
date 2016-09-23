@@ -33,11 +33,14 @@ namespace NetworkProjectClient
             _sWriter = new StreamWriter(_client.GetStream(), Encoding.ASCII);
             _sReader = new StreamReader(_client.GetStream(), Encoding.ASCII);
             _isConnected = true;
-            String sData = null;
-            Console.Write("Write your username>");
-            sData = Console.ReadLine();
+            String sData = "";
+            while (sData == "")
+            {
+                Console.Write("Write your username>");
+                sData = Console.ReadLine();
+                Console.Clear();
+            }
             _sWriter.WriteLine(sData);
-            Console.Clear();
             Console.WriteLine("Choose your action:");
             Console.WriteLine("Move, to ecounter an enemy.");
             Console.WriteLine("Attack, to attack the enemy.");
@@ -55,16 +58,16 @@ namespace NetworkProjectClient
                 _sWriter.Flush();
 
 
-               
-               
 
-            
-              //handles server responses
+
+
+
+                //handles server responses
                 char[] data;
                 data = new char[1024];
                 byte[] responseData;
-                Int32 bytes = _sReader.Read(data,0,data.Length);
-                responseData= Encoding.ASCII.GetBytes(data, 0, bytes);
+                Int32 bytes = _sReader.Read(data, 0, data.Length);
+                responseData = Encoding.ASCII.GetBytes(data, 0, bytes);
                 string result = System.Text.Encoding.UTF8.GetString(responseData);
                 Console.WriteLine(result);
                 // end of server responses
@@ -72,7 +75,7 @@ namespace NetworkProjectClient
                 Console.ReadKey();
                 Console.Clear();
 
-            
+
             }
 
         }
